@@ -6,6 +6,10 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.github.etfernandes.usersroompaging"
         minSdkVersion 21
@@ -27,6 +31,8 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.paging:paging-runtime:$pagingVersion"
+    implementation "androidx.cardview:cardview:$cardviewVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
