@@ -7,4 +7,8 @@ import com.github.etfernandes.usersroompaging.model.User
 interface UsersRepository {
 
     fun getUsers(): LiveData<PagedList<User>>
+
+    fun refreshUsers()
+
+    fun onRefreshUsers(): LiveData<Unit>
 }

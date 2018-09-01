@@ -2,6 +2,7 @@ package com.github.etfernandes.usersroompaging.database
 
 import androidx.paging.DataSource
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -15,4 +16,7 @@ interface UsersDao {
 
     @Query("SELECT * FROM users ORDER BY _ROWID_ ASC")
     fun getUsers(): DataSource.Factory<Int, User>
+
+    @Query("DELETE FROM users")
+    fun deleteUsers()
 }
