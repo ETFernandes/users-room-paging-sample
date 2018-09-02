@@ -15,17 +15,17 @@ class UsersBoundaryCallback(
     private var running = false
 
     override fun onZeroItemsLoaded() {
-        loadUsers(1)
+        loadUsers("", 1)
     }
 
     override fun onItemAtEndLoaded(itemAtEnd: User) {
-        loadUsers(itemAtEnd.info.page + 1)
+        loadUsers(itemAtEnd.info.seed, itemAtEnd.info.page + 1)
     }
 
-    private fun loadUsers(page: Int) {
+    private fun loadUsers(seed: String, page: Int) {
         if (!running) {
             running = true
-            usersService.getUsers(page, numberOfResults)
+            usersService.getUsers(seed, page, numberOfResults)
                 .doOnError {
                     running = false
                     onFailure(it)

@@ -4,6 +4,7 @@ ext {
     pagingVersion = '2.0.0-rc01'
     cardviewVersion = '1.0.0-rc01'
     constraintLayoutVersion = '1.1.2'
+    swipeRefreshLayoutVersion = '1.0.0-rc01'
     retrofitVersion = '2.4.0'
     moshiVersion = '1.6.0'
     roomVersion = '2.0.0-rc01'

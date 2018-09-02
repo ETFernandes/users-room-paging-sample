@@ -11,12 +11,16 @@ import retrofit2.http.Query
 
 class RetrofitUsersService(private val api: Api) : UsersService {
 
-    override fun getUsers(page: Int, pageSize: Int) = api.getUsers(page, pageSize).toSimpleCall()
+    override fun getUsers(seed: String, page: Int, pageSize: Int) = api.getUsers(seed, page, pageSize).toSimpleCall()
 
     interface Api {
 
-        @GET("api/1.2?inc=name,gender&seed=a38261a8ef85503a&nat=gb")
-        fun getUsers(@Query("page") page: Int, @Query("results") pageSize: Int): Call<UsersResponse>
+        @GET("api/1.2?inc=name,gender&nat=gb")
+        fun getUsers(
+            @Query("seed") seed: String,
+            @Query("page") page: Int,
+            @Query("results") pageSize: Int
+        ): Call<UsersResponse>
     }
 
     companion object {

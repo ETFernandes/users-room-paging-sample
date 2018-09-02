@@ -22,5 +22,8 @@ class UsersActivity : AppCompatActivity() {
         usersRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         viewModel.users.observe(this, Observer { adapter.submitList(it) })
+        viewModel.refresh.observe(this, Observer { swipeRefreshLayout.isRefreshing = false })
+
+        swipeRefreshLayout.setOnRefreshListener { viewModel.refreshUsers() }
     }
 }
